@@ -1,6 +1,5 @@
 affine==2.4.0
 altair==4.2.0
-anaconda-navigator==2.4.0
 appdirs==1.4.4
 atomicwrites==1.4.0
 aws-requests-auth==0.4.3
