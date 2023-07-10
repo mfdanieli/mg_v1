@@ -41,11 +41,11 @@ st.set_page_config(page_title='Water quality',page_icon='💦', layout='wide')
 # -------------------------   
 # Data
 # -------------------------   
-import joblib
-df = joblib.load('df_aux1.pkl')
+# import joblib
+# df = joblib.load('df_aux1.pkl')
 
-# with open('df_aux1.pkl', 'rb') as file:
-   # df = pickle.load(file)
+with open('df_aux1.pkl', 'rb') as file:
+   df = pickle.load(file)
 
 # df = pd.read_csv('df_aux1.csv')  
 
