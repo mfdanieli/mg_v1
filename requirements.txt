@@ -126,7 +126,6 @@ streamlit==1.16.0
 streamlit-folium==0.8.1
 tabulate==0.8.9
 tangled-up-in-unicode==0.2.0
-TBB==0.2
 typeguard==2.13.3
 tzdata==2022.5
 tzlocal==4.2
