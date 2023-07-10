@@ -91,7 +91,6 @@ platformdirs==2.6.2
 podaac==0.1.4
 pooch==1.7.0
 protobuf==3.19.1
-psycopg2==2.9.5
 py4j==0.10.9.7
 pyaml==23.5.9
 pyarrow==9.0.0
