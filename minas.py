@@ -284,7 +284,7 @@ correct_order = ['altitude', 'bacia_hidrográfica', 'curso_dágua', 'estação',
        'phosphorus_total', 'turbidity', 'pH', 'temperature',
        'dissolved_oxygen', 'river flow']
 
-X_new = X_new.reindex(columns=new_order)
+X_new = X_new.reindex(columns=correct_order)
 
 
 # st.write(X_new.columns) 
