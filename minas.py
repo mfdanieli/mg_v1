@@ -42,7 +42,7 @@ st.set_page_config(page_title='Water quality',page_icon='💦', layout='wide')
 # Data
 # -------------------------   
 
-with open('df_aux1.pickle', 'rb') as file:
+with open('df_aux1.pkl', 'rb') as file:
    df = pickle.load(file)
 
 # df = pd.read_csv('df_aux1.csv')  
