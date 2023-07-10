@@ -14,7 +14,7 @@ Boruta==0.3
 numpy
 branca==0.6.0
 brotlipy==0.7.0
-Cartopy==0.21.1
+Cartopy
 cfgrib==0.9.10.3
 cftime==1.6.2
 click-plugins==1.1.1
