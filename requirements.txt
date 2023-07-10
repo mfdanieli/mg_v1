@@ -24,7 +24,6 @@ configobj==5.0.8
 constantly==15.1.0
 cssselect==1.1.0
 cytoolz==0.11.0
-daal4py==2021.5.0
 datashape==0.5.4
 DateTime==5.1
 Deprecated==1.2.13
