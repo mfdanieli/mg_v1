@@ -95,7 +95,6 @@ py4j==0.10.9.7
 pyaml==23.5.9
 pyarrow==9.0.0
 pyasn1-modules==0.2.8
-pycosat==0.6.3
 PyGrace==1.0
 pygrib==2.1.4
 pyidw==0.2.20
