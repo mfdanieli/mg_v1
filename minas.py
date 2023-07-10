@@ -271,7 +271,23 @@ def input_data():
 user_input_variables = input_data()                                              
 X_new = tratamento_encoding(user_input_variables)
 
-st.write(X_new.columns) 
+correct_order = ['altitude', 'bacia_hidrográfica', 'curso_dágua', 'estação',
+       'latitude_graus_decimais', 'longitude_graus_decimais',
+       'alcalinidade_total', 'condição_de_tempo',
+       'condutividade_elétrica_in_loco', 'cor_verdadeira', 'nitrate',
+       'nitrite', 'sólidos_dissolvidos_totais',
+       'sólidos_em_suspensão_totais', 'sulfeto', 'temperatura_do_ar',
+       'year', 'month', 'day', 'day_of_week', 'week_of_year', 'sigla',
+       'agriculture', 'forest', 'mining', 'non observed',
+       'other non forest natural formation', 'other non vegetated area',
+       'urban infrastructure', 'water', 'period', 'BOD',
+       'phosphorus_total', 'turbidity', 'pH', 'temperature',
+       'dissolved_oxygen', 'river flow']
+
+X_new = X_new.reindex(columns=new_order)
+
+
+# st.write(X_new.columns) 
 
 # New prediction
 prediction = model.predict(X_new)
