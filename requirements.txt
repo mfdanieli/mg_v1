@@ -80,7 +80,6 @@ numpy==1.23.3
 ogr==0.42.0
 pandas==1.4.2
 pandas-profiling==3.6.6
-paramz==0.9.5
 PyGrace==1.0
 pygrib==2.1.4
 pyidw==0.2.20
