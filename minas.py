@@ -45,6 +45,7 @@ st.set_page_config(page_title='Water quality',page_icon='💦', layout='wide')
 with open('df_aux1.pickle', 'rb') as file:
     df = pickle.load(file)
 
+df = pd.read_excel('df_aux1.xlsx').drop('Unnamed: 0',axis=1)
 
 # st.header('Modeling Fe and Mn during the dry and rainy')
 
