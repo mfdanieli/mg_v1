@@ -11,6 +11,7 @@ black==19.10b0
 blessings==1.7
 blinker==1.5
 Boruta==0.3
+numpy
 branca==0.6.0
 brotlipy==0.7.0
 Cartopy==0.21.1
