@@ -93,7 +93,6 @@ pooch==1.7.0
 protobuf==3.19.1
 py4j==0.10.9.7
 pyaml==23.5.9
-pyarrow==9.0.0
 PyGrace==1.0
 pygrib==2.1.4
 pyidw==0.2.20
