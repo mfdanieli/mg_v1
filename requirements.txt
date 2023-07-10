@@ -98,7 +98,6 @@ pyasn1-modules==0.2.8
 pycosat==0.6.3
 pydantic==1.10.4
 pydeck==0.8.0b4
-PyDispatcher==2.0.5
 PyGithub==1.57
 PyGrace==1.0
 pygrib==2.1.4
