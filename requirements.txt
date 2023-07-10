@@ -110,7 +110,6 @@ requests-futures==1.0.0
 requests-toolbelt==0.10.1
 rich==12.6.0
 rise==5.7.1
-scikit-learn-intelex==2021.20220215.132722
 scikit-optimize==0.9.0
 scipy==1.9.3
 semver==2.13.0
