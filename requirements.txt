@@ -2,6 +2,7 @@ folium==0.14.0
 geopandas==0.13.0
 inflection==0.5.1
 ipython==8.14.0
+openpyxl
 matplotlib==3.5.1
 numpy==1.25.0
 pandas==1.4.2
