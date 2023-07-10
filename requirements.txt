@@ -86,8 +86,6 @@ patsy==0.5.2
 pep8==1.7.1
 phik==0.12.3
 Pillow==9.0.1
-pipreqs==0.4.11
-platformdirs==2.6.2
 PyGrace==1.0
 pygrib==2.1.4
 pyidw==0.2.20
