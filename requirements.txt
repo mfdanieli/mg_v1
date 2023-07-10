@@ -84,8 +84,6 @@ paramz==0.9.5
 pathspec==0.7.0
 patsy==0.5.2
 pep8==1.7.1
-phik==0.12.3
-Pillow==9.0.1
 PyGrace==1.0
 pygrib==2.1.4
 pyidw==0.2.20
