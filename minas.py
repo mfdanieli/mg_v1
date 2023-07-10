@@ -161,23 +161,23 @@ def tratamento_encoding(X):
     le3 = LabelEncoder()
     df_tratado['curso_dágua'] = le3.fit_transform(df_tratado['curso_dágua'])
     
-    #  # day of week
-    # df_tratado['year_sin'] = df_tratado['year'].apply( lambda x: np.sin( x * ( 2. * np.pi/7 ) ) )
-    # df_tratado['year_cos'] = df_tratado['year'].apply( lambda x: np.cos( x * ( 2. * np.pi/7 ) ) )
+     # day of week
+    df_tratado['year_sin'] = df_tratado['year'].apply( lambda x: np.sin( x * ( 2. * np.pi/7 ) ) )
+    df_tratado['year_cos'] = df_tratado['year'].apply( lambda x: np.cos( x * ( 2. * np.pi/7 ) ) )
 
-    # # month
-    # df_tratado['month_sin'] = df_tratado['month'].apply( lambda x: np.sin( x * ( 2. * np.pi/12 ) ) )
-    # df_tratado['month_cos'] = df_tratado['month'].apply( lambda x: np.cos( x * ( 2. * np.pi/12 ) ) )
+    # month
+    df_tratado['month_sin'] = df_tratado['month'].apply( lambda x: np.sin( x * ( 2. * np.pi/12 ) ) )
+    df_tratado['month_cos'] = df_tratado['month'].apply( lambda x: np.cos( x * ( 2. * np.pi/12 ) ) )
 
-    # # day 
-    # df_tratado['day_sin'] = df_tratado['day'].apply( lambda x: np.sin( x * ( 2. * np.pi/30 ) ) )
-    # df_tratado['day_cos'] = df_tratado['day'].apply( lambda x: np.cos( x * ( 2. * np.pi/30 ) ) )
+    # day 
+    df_tratado['day_sin'] = df_tratado['day'].apply( lambda x: np.sin( x * ( 2. * np.pi/30 ) ) )
+    df_tratado['day_cos'] = df_tratado['day'].apply( lambda x: np.cos( x * ( 2. * np.pi/30 ) ) )
     
-    # # others
-    # df_tratado['day_of_week_sin'] = df_tratado['day_of_week'].apply( lambda x: np.sin( x * ( 2. * np.pi/30 ) ) )
-    # df_tratado['day_of_week_cos'] = df_tratado['day_of_week'].apply( lambda x: np.cos( x * ( 2. * np.pi/30 ) ) )
-    # df_tratado['week_of_year_sin'] = df_tratado['week_of_year'].apply( lambda x: np.sin( x * ( 2. * np.pi/30 ) ) )
-    # df_tratado['week_of_year_cos'] = df_tratado['week_of_year'].apply( lambda x: np.cos( x * ( 2. * np.pi/30 ) ) )
+    # others
+    df_tratado['day_of_week_sin'] = df_tratado['day_of_week'].apply( lambda x: np.sin( x * ( 2. * np.pi/30 ) ) )
+    df_tratado['day_of_week_cos'] = df_tratado['day_of_week'].apply( lambda x: np.cos( x * ( 2. * np.pi/30 ) ) )
+    df_tratado['week_of_year_sin'] = df_tratado['week_of_year'].apply( lambda x: np.sin( x * ( 2. * np.pi/30 ) ) )
+    df_tratado['week_of_year_cos'] = df_tratado['week_of_year'].apply( lambda x: np.cos( x * ( 2. * np.pi/30 ) ) )
 
 
     return df_tratado
@@ -282,7 +282,9 @@ correct_order = ['altitude', 'bacia_hidrográfica', 'curso_dágua', 'estação',
        'other non forest natural formation', 'other non vegetated area',
        'urban infrastructure', 'water', 'period', 'BOD',
        'phosphorus_total', 'turbidity', 'pH', 'temperature',
-       'dissolved_oxygen', 'river flow']
+       'dissolved_oxygen', 'river flow', 'year_sin', 'year_cos',
+       'month_sin', 'month_cos', 'day_sin', 'day_cos', 'day_of_week_sin',
+       'day_of_week_cos', 'week_of_year_sin', 'week_of_year_cos']
 
 X_new = X_new.reindex(columns=correct_order)
 
