@@ -45,6 +45,8 @@ st.set_page_config(page_title='Water quality',page_icon='💦', layout='wide')
 with open('df_aux1.pkl', 'rb') as file:
    df = pickle.load(file)
 
+df = pd.read_csv('df_aux1.csv')  
+
 # df = pd.read_excel('df_aux1.xlsx').drop('Unnamed: 0',axis=1)
 # numeric_features = df.select_dtypes(include=['int', 'float']).columns
 # df[numeric_features] = df[numeric_features].astype(float)
