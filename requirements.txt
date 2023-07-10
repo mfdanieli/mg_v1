@@ -40,7 +40,6 @@ fitter==1.5.2
 folium==0.14.0
 fonttools==4.25.0
 fuzzywuzzy==0.18.0
-GDAL==3.6.4
 geofeather==0.3.0
 geographiclib==2.0
 geojson==3.0.1
