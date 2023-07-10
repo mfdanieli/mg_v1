@@ -271,7 +271,7 @@ def input_data():
 user_input_variables = input_data()                                              
 X_new = tratamento_encoding(user_input_variables)
 
-st.write(X_new)
+st.write(model)
 
 # New prediction
 prediction = model.predict(X_new)
