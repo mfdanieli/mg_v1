@@ -124,7 +124,7 @@ model = pickle.load( open( 'knn_model.pkl', 'rb') )
 # model = pickle.load( open( '../pkl/adaboost_model.pkl', 'rb') )
 # model = pickle.load( open( '../pkl/catboost_model.pkl', 'rb') )
 # model = pickle.load( open( '../pkl/lgbm_model.pkl', 'rb') )
-model = pickle.load( open( 'theil_model.pkl', 'rb') )
+# model = pickle.load( open( 'theil_model.pkl', 'rb') )
 # model = pickle.load( open( '../pkl/ransac_model.pkl', 'rb') )
 # model = pickle.load( open( '../pkl/extra_model.pkl', 'rb') )
 
