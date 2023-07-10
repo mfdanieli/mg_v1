@@ -42,8 +42,8 @@ st.set_page_config(page_title='Water quality',page_icon='💦', layout='wide')
 # Data
 # -------------------------   
 
-with open('df_aux1.pickle', 'rb') as file:
-    df = pickle.load(file)
+# with open('df_aux1.pickle', 'rb') as file:
+#    df = pickle.load(file)
 
 df = pd.read_excel('df_aux1.xlsx').drop('Unnamed: 0',axis=1)
 
