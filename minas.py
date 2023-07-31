@@ -122,7 +122,7 @@ def input_data():
     # USER DATA
     total_phosphorus = st.sidebar.slider('Total phosphorus (mg/L)', 0.1, 10.0, 0.1)
     BOD = st.sidebar.slider('BOD (mg/L)', 0.1, 10.0, 1.0)
-    ph = st.sidebar.slider('pH', 5.15, 12.0, df['pH'].mean())
+    ph = st.sidebar.slider('pH', 5.15, 12.0, 7.0)
     temperature = st.sidebar.slider('Temperature (˚C)', 7.5, 31.0, 22.0)
     do = st.sidebar.slider('Dissolved oxygen (mg/L)', 2.0, 9.5, 8.0)
     turbidity = st.sidebar.slider('Turbidity (NTU)', 10.0, 1000.0, 100.0)
