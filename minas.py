@@ -79,7 +79,7 @@ st.sidebar.markdown("""---""")
 st.sidebar.markdown('### Change the variables')
 
 # loading model
-model = pickle.load( open( '../BayesSearchCV_theilsen.pkl', 'rb') )
+model = pickle.load( open( 'BayesSearchCV_theilsen.pkl', 'rb') )
 
 # ******************
 # Helper functions
