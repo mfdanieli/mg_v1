@@ -120,17 +120,17 @@ def tratamento_encoding(X):
 # função para receber dados do usuário e juntar com outras features
 def input_data():
     # USER DATA
-    total_phosphorus = st.sidebar.slider('Total phosphorus (mg/L)', 0.1, 10.0, df['total_phosphorus'].mean())
-    BOD = st.sidebar.slider('BOD (mg/L)', 0.1, 10.0, df['BOD'].mean())
+    total_phosphorus = st.sidebar.slider('Total phosphorus (mg/L)', 0.1, 10.0, 0.1)
+    BOD = st.sidebar.slider('BOD (mg/L)', 0.1, 10.0, 1.0)
     ph = st.sidebar.slider('pH', 5.15, 12.0, df['pH'].mean())
-    temperature = st.sidebar.slider('Temperature (˚C)', 7.5, 31.0, df['temperature'].mean())
-    do = st.sidebar.slider('Dissolved oxygen (mg/L)', 2.0, 9.5, df['dissolved_oxygen'].mean())
-    turbidity = st.sidebar.slider('Turbidity (NTU)', 10.0, 1000.0, df['turbidity'].mean())
-    conductivity = st.sidebar.slider('Conductivity ', 5.0, 400.0, df['in-situ_electrical_conductivity'].mean())
-    suspended_solids = st.sidebar.slider('Suspended solids', 1.0, 1000.0, df['total_suspended_solids'].mean())
+    temperature = st.sidebar.slider('Temperature (˚C)', 7.5, 31.0, 22.0)
+    do = st.sidebar.slider('Dissolved oxygen (mg/L)', 2.0, 9.5, 8.0)
+    turbidity = st.sidebar.slider('Turbidity (NTU)', 10.0, 1000.0, 100.0)
+    conductivity = st.sidebar.slider('Conductivity ', 5.0, 400.0, 100.0)
+    suspended_solids = st.sidebar.slider('Suspended solids', 1.0, 1000.0, 100.0)
     agriculture_fact = st.sidebar.slider('Agriculture', 0.1, 1.5, 1.0) 
     mining_fact = st.sidebar.slider('Mining', 0.1, 1.5, 1.0) 
-    urban_fact = st.sidebar.slider('Urban', 0.1, 1.5, 1.0) 
+    urban_fact = st.sidebar.slider('Urban', 0.1, 1.5, 1.0)  
 
     # um dicionário recebe as informações acima
     user_data = {'agriculture': agriculture_fact, 
