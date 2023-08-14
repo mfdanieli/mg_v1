@@ -32,23 +32,22 @@ st.set_page_config(page_title='Water quality',page_icon='💦', layout='wide')
 # Data
 # -------------------------   
 
-# with open('df_aux1.pickle', 'rb') as file:
-#     df = pickle.load(file)
-df = pd.read_csv('df_aux1.csv')
+with open('df_aux1.pickle', 'rb') as file:
+    df = pickle.load(file)
 
 # criar abas
-tab1,tab2 = st.tabs(['ℹ️ How to use this app','✓ Model Application'])
+tab1,tab2 = st.tabs(['ℹ️ General Information','📊 Simulations'])
 
 with tab1: 
     with st.container(): 
 
-        st.subheader('Health risk to drink river water in Minas Gerais')
+        st.subheader('Assessing the Health Risk of Drinking River Water in Minas Gerais')
         
-        st.markdown('##### How to use this app')
+        st.markdown('##### How to use this tool')
          
-        st.write('In the sidebar, you can alter water characteristics and set a factor of change for land cover across the state. A tradeoff is set between forest and the other uses (if urban area, agriculture, or mining increase, it is assumed that they replace forest cover). It must be stated that the model accounts only for change in the land cover area. This means that the increase/decrease of diffuse or point load input from these areas is not accounted. Notheless, these affects may be assessed varying other variables, such as organic matter and nutrient content within the rivers.')
-        st.write('Further information about data and methods are presented in..link artigo..')
-        st.write('In the tab ***"Model Application"*** you will verify the predicted risk to human health due to long-exposure to river water ingestion, represented by the Health Index.')
+        st.write('In the sidebar, you can modify water characteristics and set a factor of change for land cover across the state. A tradeoff is established between forests and other land uses (urban areas, agriculture, or mining). It is assumed that as these uses increase, they replace forest cover. It is important to note that the model only considers changes in the land cover area. Consequently, the increase or decrease in diffuse or point load input from these areas is not taken into account. However, these effects can still be assessed by varying other variables, such as organic matter and nutrient content within the rivers.')
+        # st.write('Additional information about the data and methods is provided in the article linked')
+        st.write('In the tab ***"Simulations"*** you can assess the predicted risk to human health due to long-term exposure to river water ingestion, represented by the Health Index.')
 
         st.write('The risk is calculated as a Health Quotient:')
 
@@ -66,18 +65,18 @@ with tab1:
         > BW is the average body weight in kg (70 kg for adults); 
         > AT is the averaging time (AT = 365 × ED).
         >
-        > The Health Index (HI) is the sum of HQ for each metal. A HI > suggests a possible risk for non-carcinogenic effects.
+        > The Health Index (HI) is the sum of HQ of each metal. A HI > suggests a possible risk for non-carcinogenic effects.
         """)          
 
 # ******************
 # Barra lateral Streamlit
 # ******************  
 
-st.sidebar.markdown('# Risk to health of adults due to long-term river water ingestion in Minas Gerais')
+st.sidebar.markdown('# Evaluating the Health Risk for Adults from Long-Term Ingestion of River Water in Minas Gerais')
 
 st.sidebar.markdown("""---""")
 
-st.sidebar.markdown('### Change the variables')
+st.sidebar.markdown('### Change the Variables')
 
 # loading model
 model = pickle.load( open( 'BayesSearchCV_theilsen.pkl', 'rb') )
@@ -121,16 +120,16 @@ def tratamento_encoding(X):
 def input_data():
     # USER DATA
     total_phosphorus = st.sidebar.slider('Total phosphorus (mg/L)', 0.1, 10.0, 0.1)
-    BOD = st.sidebar.slider('BOD (mg/L)', 0.1, 10.0, 1.0)
+    BOD = st.sidebar.slider('Biochemical Oxygen Demand (mg/L)', 0.1, 10.0, 1.0)
     ph = st.sidebar.slider('pH', 5.15, 12.0, 7.0)
     temperature = st.sidebar.slider('Temperature (˚C)', 7.5, 31.0, 22.0)
     do = st.sidebar.slider('Dissolved oxygen (mg/L)', 2.0, 9.5, 8.0)
     turbidity = st.sidebar.slider('Turbidity (NTU)', 10.0, 1000.0, 100.0)
-    conductivity = st.sidebar.slider('Conductivity ', 5.0, 400.0, 100.0)
-    suspended_solids = st.sidebar.slider('Suspended solids', 1.0, 1000.0, 100.0)
+    conductivity = st.sidebar.slider('Conductivity (µS/cm)', 5.0, 400.0, 100.0)
+    suspended_solids = st.sidebar.slider('Suspended solids (mg/L)', 1.0, 1000.0, 100.0)
     agriculture_fact = st.sidebar.slider('Agriculture', 0.1, 1.5, 1.0) 
     mining_fact = st.sidebar.slider('Mining', 0.1, 1.5, 1.0) 
-    urban_fact = st.sidebar.slider('Urban', 0.1, 1.5, 1.0)  
+    urban_fact = st.sidebar.slider('Urban', 0.1, 1.5, 1.0) 
 
     # um dicionário recebe as informações acima
     user_data = {'agriculture': agriculture_fact, 
@@ -202,7 +201,7 @@ def input_data():
     return features
     
 # form the new input dataset (X_test)
-user_input_variables = input_data()                                              
+user_input_variables = input_data()                                           
 X_new = tratamento_encoding(user_input_variables)
 
 # New prediction
@@ -218,20 +217,20 @@ with tab2:
         col1, col2 = st.columns([2, 1])
         
         with col1:
-            st.markdown('##### 📊 Mean predicted Health Index')
+            st.markdown('##### Mean predicted Health Index')
             
         with col2:
             col2.metric(' ', np.round(np.mean(prediction),2))
     
     
-        st.markdown('##### 🔎 Box Plot with Health Index across the state')
+        st.markdown('##### Box Plot with Health Index across the state')
         fig = px.box(prediction, width = 500, height = 200, orientation='h')
         fig.update_layout(xaxis_title=' ', yaxis_title=' ')  
 
         st.plotly_chart(fig)
             
         # mapa de HI simulado por estação
-        st.markdown('##### 📌 Map of predicted Health Index')
+        st.markdown('##### Map of predicted Health Index')
         
         # Create a DataFrame with latitude, longitude, and predictions
         prediction_df = pd.DataFrame({'latitude': df['decimal_latitude'],
@@ -282,66 +281,7 @@ with tab2:
         # Display the map in Streamlit
         folium_static(m)
 
-
-####################################################################################### ISSO ABAIXO SERVE PARA COLOCAR UMA BARRA DE ACOMPANHAMENTO - FUNCIONOU, MAS ESCOLHI NAO USAR AQUI
-
-#     with st.container():
-
-#         import streamlit as st
-
-#         # Function to customize the CSS of the slider
-#         def set_slider_style():
-#             st.markdown(
-#                 """
-#                 <style>
-#                 .slider-content {
-#                     margin-top: 20px;
-#                 }
-
-#                 .slider-value {
-#                     float: right;
-#                 }
-
-#                 .risk-bar {
-#                     background-color: #ddd;
-#                     height: 20px;
-#                     border-radius: 10px;
-#                     margin-top: 10px;
-#                 }
-
-#                 .risk-value {
-#                     background-color: #ff4d4d;
-#                     height: 100%;
-#                     border-radius: inherit;
-#                     width: 0;
-#                     transition: width 0.3s;
-#                 }
-#                 </style>
-#                 """,
-#                 unsafe_allow_html=True
-#             )
-
-#         # Function to render the risk bar
-#         def render_risk_bar(risk_level, compare_value):
-#             risk_percentage = risk_level / compare_value * 10
-#             st.markdown('<div class="risk-bar"><div class="risk-value" style="width:{}%;"></div></div>'.format(risk_percentage), unsafe_allow_html=True)
-
-#         # Set the style for the slider
-#         set_slider_style()
-
-#         # Calculate the risk level
-#         calculated_risk_level = np.round(np.mean(prediction),2)
-#         compare_value = 1
-
-#         # Render the risk bar
-#         render_risk_bar(calculated_risk_level, compare_value)
-
-#         # Display the risk level and comparison value
-#         st.markdown(f"Mean Risk Level: {calculated_risk_level}")
-#         # st.markdown(f"Comparison Value: {compare_value}")
-
-
        
 st.sidebar.markdown("""---""")
 
-st.sidebar.markdown('#### This app is under development. Contact danimf15@hotmail.com for more details.')
+st.sidebar.markdown('#### This web application is under development. Contact danielimaraferreira@gmail.com for more details.')
